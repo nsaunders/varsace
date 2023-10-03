@@ -13,9 +13,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: commitlint
-        uses: wagoid/commitlint-github-action@v5
-
       - name: prettier
         uses: actionsx/prettier@v3
         with:
@@ -28,6 +25,9 @@ jobs:
 
       - name: install dependencies
         run: npm ci
+
+      - name: commitlint
+        uses: wagoid/commitlint-github-action@v5
 
       - name: lint
         run: npm run lint

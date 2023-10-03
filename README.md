@@ -1,4 +1,4 @@
-# vars
+# varsace
 
 This package provides a set of
 [design tokens](https://uxdesign.cc/design-tokens-for-dummies-8acebf010d71) in

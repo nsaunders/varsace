@@ -1,5 +1,5 @@
 {
-  "name": "vars",
+  "name": "varsace",
   "version": "0.0.0",
   "description": "TypeScript CSS variables",
   "module": "index.js",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nsaunders/vars.git"
+    "url": "git+https://github.com/nsaunders/varsace.git"
   },
   "keywords": [
     "css",
@@ -30,9 +30,9 @@
   "author": "Nick Saunders",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nsaunders/vars/issues"
+    "url": "https://github.com/nsaunders/varsace/issues"
   },
-  "homepage": "https://github.com/nsaunders/vars#readme",
+  "homepage": "https://github.com/nsaunders/varsace#readme",
   "devDependencies": {
     "@k-vyn/coloralgorithm": "^1.0.0",
     "@tsconfig/node-lts": "^18.12.5",

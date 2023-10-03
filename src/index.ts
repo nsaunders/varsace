@@ -13,7 +13,7 @@ async function main() {
   }
 
   if (process.argv.includes("--clean")) {
-    await Promise.all([jsPath, dtsPath].map((p) => fs.rm(p)));
+    await Promise.all([jsPath, dtsPath].map(p => fs.rm(p)));
     console.log("Cleaned up files.");
     process.exit(0);
   }
@@ -29,10 +29,10 @@ async function main() {
           /* eslint-disable @typescript-eslint/no-unsafe-return,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access */
           colors.map(({ hex }: { hex: string }, index) => {
             return [`${name?.toLowerCase()}${(index + 1) * 10}`, hex];
-          })
+          }),
         /* eslint-enable @typescript-eslint/no-unsafe-return,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access */
       )
-      .sort(([a]: string[], [b]: string[]) => (a < b ? -1 : a > b ? 1 : 0))
+      .sort(([a]: string[], [b]: string[]) => (a < b ? -1 : a > b ? 1 : 0)),
   );
 
   if (
@@ -46,7 +46,7 @@ async function main() {
   const white =
     "#" +
     [...(colors.gray10.match(/[a-f0-9]{2}/g) || [])]
-      .map((x) => {
+      .map(x => {
         const val = Math.ceil((255 + parseInt(`0x${x}`)) / 2).toString(16);
         return val.length === 1 ? `0${val}` : val;
       })
@@ -63,7 +63,7 @@ async function main() {
   const black =
     "#" +
     [...(colors.gray90.match(/[a-f0-9]{2}/g) || [])]
-      .map((x) => {
+      .map(x => {
         const val = Math.floor(parseInt(`0x${x}`) / 2).toString(16);
         return val.length === 1 ? `0${val}` : val;
       })
@@ -74,21 +74,21 @@ async function main() {
   const js = Object.entries(allColors)
     .map(
       ([name, fallback]) =>
-        `export const ${name} = "var(--${name},${fallback})";`
+        `export const ${name} = "var(--${name},${fallback})";`,
     )
     .join("\n");
 
   await fs.writeFile(jsPath, js);
 
   const dts = Object.keys(allColors)
-    .map((name) => `declare const ${name}: string;`)
+    .map(name => `declare const ${name}: string;`)
     .concat(`\nexport {\n  ${Object.keys(allColors).join(",\n  ")}\n}`)
     .join("\n");
 
   await fs.writeFile(dtsPath, dts);
 }
 
-main().catch((e) => {
+main().catch(e => {
   console.error(e);
   process.exit(1);
 });

@@ -24,12 +24,14 @@ jobs:
 
       - name: version bump
         id: bump
-        run: echo "version=$(npm version $(npx conventional-recommended-bump -p
+        run:
+          echo "version=$(npm version $(npx conventional-recommended-bump -p
           conventionalcommits) --preid=alpha --git-tag-version=false
           --tag-version-prefix='')" >> $GITHUB_OUTPUT
 
       - name: generate changelog
-        run: npx conventional-changelog -p conventionalcommits -i CHANGELOG.md -s
+        run:
+          npx conventional-changelog -p conventionalcommits -i CHANGELOG.md -s
 
       - name: commit version bump
         id: commit

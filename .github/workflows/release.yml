@@ -1,0 +1,65 @@
+name: release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{github.ref}}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.16.1
+          registry-url: "https://registry.npmjs.org"
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: version bump
+        id: bump
+        run: echo "version=$(npm version $(npx conventional-recommended-bump -p
+          conventionalcommits) --preid=alpha --git-tag-version=false
+          --tag-version-prefix='')" >> $GITHUB_OUTPUT
+
+      - name: generate changelog
+        run: npx conventional-changelog -p conventionalcommits -i CHANGELOG.md -s
+
+      - name: commit version bump
+        id: commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: "release: v${{steps.bump.outputs.version}}"
+
+      - name: tag version
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{github.token}}
+          script: |
+            await github.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: "refs/tags/v${{steps.bump.outputs.version}}",
+              sha: "${{steps.commit.outputs.commit_long_sha}}"
+            })
+
+      - name: fetch tag
+        run: git fetch --tags
+
+      - name: github release
+        run: npx conventional-github-releaser -p conventionalcommits
+        env:
+          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GH_ACCESS_TOKEN}}
+
+      - name: npm publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

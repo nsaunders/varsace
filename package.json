@@ -1,0 +1,49 @@
+{
+  "name": "vars",
+  "version": "0.0.0",
+  "description": "TypeScript CSS variables",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "clean": "ts-node ./src/index.ts --clean",
+    "lint": "eslint src .*.*js",
+    "prepublishOnly": "ts-node ./src/index.ts",
+    "test": "echo \"Don't test declarative code.\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsaunders/vars.git"
+  },
+  "keywords": [
+    "css",
+    "variables",
+    "tailwind",
+    "openprops",
+    "pollen",
+    "typescript",
+    "theme"
+  ],
+  "author": "Nick Saunders",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nsaunders/vars/issues"
+  },
+  "homepage": "https://github.com/nsaunders/vars#readme",
+  "devDependencies": {
+    "@k-vyn/coloralgorithm": "^1.0.0",
+    "@tsconfig/node-lts": "^18.12.5",
+    "@tsconfig/strictest": "^2.0.2",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "conventional-changelog-cli": "^4.1.0",
+    "conventional-github-releaser": "^3.1.5",
+    "conventional-recommended-bump": "^9.0.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2"
+  }
+}

@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: commitlint
+        uses: wagoid/commitlint-github-action@v5
+
+      - name: prettier
+        uses: actionsx/prettier@v3
+        with:
+          args: --check .
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.16.1
+          registry-url: "https://registry.npmjs.org"
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: lint
+        run: npm run lint
+
+      - name: build
+        run: npm run prepublishOnly
+
+      - name: verify
+        run: test -e index.js && test -e index.d.ts

@@ -5,15 +5,69 @@ export default [
     properties: {
       steps: 9,
       hue: {
-        start: 112,
-        end: 113,
-        curve: "easeOutQuad",
+        start: 214,
+        end: 226,
+        curve: "linear",
       },
       saturation: {
-        start: 0.05,
-        end: 0.76,
-        rate: 1,
-        curve: "easeOutQuad",
+        start: 0.03,
+        end: 0.73,
+        rate: 2,
+        curve: "linear",
+      },
+      brightness: {
+        start: 0.92,
+        end: 0.05,
+        curve: "linear",
+      },
+    },
+    options: {
+      minorSteps: [],
+      name: "Blue",
+      provideInverted: false,
+      rotation: "clockwise",
+    },
+  },
+  {
+    properties: {
+      steps: 9,
+      hue: {
+        start: 210,
+        end: 224,
+        curve: "linear",
+      },
+      saturation: {
+        start: 0.01,
+        end: 0.19,
+        rate: 2,
+        curve: "linear",
+      },
+      brightness: {
+        start: 0.88,
+        end: 0.03,
+        curve: "linear",
+      },
+    },
+    options: {
+      minorSteps: [],
+      name: "Gray",
+      provideInverted: false,
+      rotation: "clockwise",
+    },
+  },
+  {
+    properties: {
+      steps: 9,
+      hue: {
+        start: 138,
+        end: 145,
+        curve: "linear",
+      },
+      saturation: {
+        start: 0.02,
+        end: 0.89,
+        rate: 0.9,
+        curve: "easeOutCubic",
       },
       brightness: {
         start: 1,
@@ -32,154 +86,19 @@ export default [
     properties: {
       steps: 9,
       hue: {
-        start: 182,
-        end: 184,
-        curve: "easeOutQuad",
+        start: 33,
+        end: 13,
+        curve: "linear",
       },
       saturation: {
-        start: 0.06,
+        start: 0.02,
         end: 0.9,
-        rate: 1,
-        curve: "easeOutQuad",
-      },
-      brightness: {
-        start: 1,
-        end: 0.04,
-        curve: "linear",
-      },
-    },
-    options: {
-      minorSteps: [],
-      name: "Teal",
-      provideInverted: false,
-      rotation: "clockwise",
-    },
-  },
-  {
-    properties: {
-      steps: 9,
-      hue: {
-        start: 207,
-        end: 220,
-        curve: "easeOutQuad",
-      },
-      saturation: {
-        start: 0.1,
-        end: 0.36,
-        rate: 0.8,
-        curve: "easeOutQuad",
-      },
-      brightness: {
-        start: 1,
-        end: 0.05,
-        curve: "linear",
-      },
-    },
-    options: {
-      minorSteps: [],
-      name: "Gray",
-      provideInverted: false,
-      rotation: "clockwise",
-    },
-  },
-  {
-    properties: {
-      steps: 9,
-      hue: {
-        start: 174,
-        end: 224,
-        curve: "easeOutQuad",
-      },
-      saturation: {
-        start: 0.13,
-        end: 0.73,
-        rate: 0.9,
-        curve: "easeOutQuad",
-      },
-      brightness: {
-        start: 1,
-        end: 0.05,
-        curve: "linear",
-      },
-    },
-    options: {
-      minorSteps: [],
-      name: "Blue",
-      provideInverted: false,
-      rotation: "clockwise",
-    },
-  },
-  {
-    properties: {
-      steps: 9,
-      hue: {
-        start: 299,
-        end: 306,
-        curve: "easeOutQuad",
-      },
-      saturation: {
-        start: 0.1,
-        end: 0.47,
-        rate: 0.9,
-        curve: "easeOutQuad",
-      },
-      brightness: {
-        start: 1,
-        end: 0.05,
-        curve: "linear",
-      },
-    },
-    options: {
-      minorSteps: [],
-      name: "Pink",
-      provideInverted: false,
-      rotation: "clockwise",
-    },
-  },
-  {
-    properties: {
-      steps: 9,
-      hue: {
-        start: 255,
-        end: 256,
-        curve: "easeOutQuad",
-      },
-      saturation: {
-        start: 0.09,
-        end: 0.77,
-        rate: 1.3,
-        curve: "easeInSine",
-      },
-      brightness: {
-        start: 1,
-        end: 0.05,
-        curve: "linear",
-      },
-    },
-    options: {
-      minorSteps: [],
-      name: "Purple",
-      provideInverted: false,
-      rotation: "clockwise",
-    },
-  },
-  {
-    properties: {
-      steps: 9,
-      hue: {
-        start: 12,
-        end: 5,
-        curve: "easeInOutCubic",
-      },
-      saturation: {
-        start: 0.05,
-        end: 1,
-        rate: 0.9,
+        rate: 2,
         curve: "linear",
       },
       brightness: {
         start: 1,
-        end: 0.05,
+        end: 0.03,
         curve: "linear",
       },
     },
@@ -194,27 +113,54 @@ export default [
     properties: {
       steps: 9,
       hue: {
-        start: 59,
-        end: 50,
-        curve: "easeOutQuint",
+        start: 327,
+        end: 336,
+        curve: "easeInOutQuad",
       },
       saturation: {
-        start: 0.04,
-        end: 1,
-        rate: 1.1,
-        curve: "easeOutCubic",
+        start: 0.03,
+        end: 0.91,
+        rate: 2,
+        curve: "linear",
       },
       brightness: {
-        start: 0.94,
-        end: 0.05,
+        start: 1,
+        end: 0.03,
         curve: "linear",
       },
     },
     options: {
       minorSteps: [],
-      name: "Yellow",
+      name: "Pink",
       provideInverted: false,
-      rotation: "counterclockwise",
+      rotation: "clockwise",
+    },
+  },
+  {
+    properties: {
+      steps: 9,
+      hue: {
+        start: 270,
+        end: 274,
+        curve: "linear",
+      },
+      saturation: {
+        start: 0.03,
+        end: 1,
+        rate: 1,
+        curve: "linear",
+      },
+      brightness: {
+        start: 1,
+        end: 0.03,
+        curve: "linear",
+      },
+    },
+    options: {
+      minorSteps: [],
+      name: "Purple",
+      provideInverted: false,
+      rotation: "clockwise",
     },
   },
   {
@@ -222,24 +168,78 @@ export default [
       steps: 9,
       hue: {
         start: 0,
-        end: 350,
-        curve: "easeInOutQuart",
+        end: 0,
+        curve: "linear",
       },
       saturation: {
-        start: 0.09,
-        end: 1,
-        rate: 1.1,
-        curve: "easeInSine",
+        start: 0.02,
+        end: 0.86,
+        rate: 2,
+        curve: "linear",
       },
       brightness: {
         start: 1,
-        end: 0.05,
+        end: 0.03,
         curve: "linear",
       },
     },
     options: {
       minorSteps: [],
       name: "Red",
+      provideInverted: false,
+      rotation: "clockwise",
+    },
+  },
+  {
+    properties: {
+      steps: 9,
+      hue: {
+        start: 166,
+        end: 179,
+        curve: "linear",
+      },
+      saturation: {
+        start: 0.07,
+        end: 0.91,
+        rate: 2,
+        curve: "easeInOutCubic",
+      },
+      brightness: {
+        start: 1,
+        end: 0.03,
+        curve: "linear",
+      },
+    },
+    options: {
+      minorSteps: [],
+      name: "Teal",
+      provideInverted: false,
+      rotation: "clockwise",
+    },
+  },
+  {
+    properties: {
+      steps: 9,
+      hue: {
+        start: 55,
+        end: 26,
+        curve: "linear",
+      },
+      saturation: {
+        start: 0.03,
+        end: 0.91,
+        rate: 2,
+        curve: "linear",
+      },
+      brightness: {
+        start: 1,
+        end: 0.03,
+        curve: "linear",
+      },
+    },
+    options: {
+      minorSteps: [],
+      name: "Yellow",
       provideInverted: false,
       rotation: "counterclockwise",
     },

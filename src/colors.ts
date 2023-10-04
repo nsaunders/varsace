@@ -7,17 +7,17 @@ export default [
       hue: {
         start: 214,
         end: 226,
-        curve: "linear",
+        curve: "easeInCubic",
       },
       saturation: {
-        start: 0.03,
-        end: 0.73,
-        rate: 2,
+        start: 0.15,
+        end: 0.93,
+        rate: 1.6,
         curve: "linear",
       },
       brightness: {
         start: 0.92,
-        end: 0.05,
+        end: 0.09,
         curve: "linear",
       },
     },

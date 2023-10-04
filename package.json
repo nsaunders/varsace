@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "clean": "ts-node ./src/index.ts --clean",
+    "config": "ts-node ./src/index.ts --config",
     "lint": "eslint src .*.*js",
     "prepublishOnly": "ts-node ./src/index.ts",
     "test": "echo \"Don't test declarative code.\""

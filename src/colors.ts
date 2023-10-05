@@ -5,19 +5,19 @@ export default [
     properties: {
       steps: 9,
       hue: {
-        start: 214,
-        end: 226,
+        start: 205,
+        end: 215,
         curve: "easeInCubic",
       },
       saturation: {
-        start: 0.15,
-        end: 0.93,
-        rate: 1.6,
+        start: 0.08,
+        end: 1,
+        rate: 2,
         curve: "linear",
       },
       brightness: {
-        start: 0.92,
-        end: 0.09,
+        start: 0.97,
+        end: 0.05,
         curve: "linear",
       },
     },

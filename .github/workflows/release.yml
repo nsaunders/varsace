@@ -57,7 +57,7 @@ jobs:
         run: git fetch --tags
 
       - name: github release
-        run: npx conventional-github-releaser -p conventionalcommits
+        run: npx conventional-github-releaser -p angular
         env:
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GH_ACCESS_TOKEN}}
 

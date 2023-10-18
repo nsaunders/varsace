@@ -1,3 +1,10 @@
+## [0.1.0](https://github.com/nsaunders/varsace/compare/v0.0.4...v0.1.0) (2023-10-18)
+
+
+### Features
+
+* defaults ([9cef1e6](https://github.com/nsaunders/varsace/commit/9cef1e6e2a733a020f3affa3d4b7aacac35378d2))
+
 ## [0.0.4](https://github.com/nsaunders/varsace/compare/v0.0.3...v0.0.4) (2023-10-05)
 
 ## [0.0.3](https://github.com/nsaunders/varsace/compare/v0.0.2...v0.0.3) (2023-10-04)

@@ -1,10 +1,18 @@
 import fs from "fs/promises";
-import path from "path";
+import pathNode from "path";
 import { generate } from "@k-vyn/coloralgorithm";
 import config from "./colors";
 
-const jsPath = path.join(process.cwd(), "index.js");
-const dtsPath = path.join(process.cwd(), "index.d.ts");
+function path(p: string) {
+  return pathNode.join(process.cwd(), p);
+}
+
+const fileNames = [
+  "index.js",
+  "index.d.ts",
+  "defaults.js",
+  "defaults.d.ts",
+] as const;
 
 async function main() {
   if (process.argv.includes("--config")) {
@@ -13,7 +21,7 @@ async function main() {
   }
 
   if (process.argv.includes("--clean")) {
-    await Promise.all([jsPath, dtsPath].map(p => fs.rm(p)));
+    await Promise.all(fileNames.map(p => fs.rm(path(p))));
     console.log("Cleaned up files.");
     process.exit(0);
   }
@@ -71,21 +79,31 @@ async function main() {
 
   const allColors = { ...colors, black, white };
 
-  const js = Object.entries(allColors)
-    .map(
-      ([name, fallback]) =>
-        `export const ${name} = "var(--${name},${fallback})";`,
-    )
-    .join("\n");
+  const files: Record<(typeof fileNames)[number], string> = {
+    "index.js": Object.entries(allColors)
+      .map(
+        ([name, fallback]) =>
+          `export const ${name} = "var(--${name},${fallback})";`,
+      )
+      .join("\n"),
+    "index.d.ts": Object.keys(allColors)
+      .map(name => `declare const ${name}: string;`)
+      .concat(`\nexport {\n  ${Object.keys(allColors).join(",\n  ")}\n}`)
+      .join("\n"),
+    "defaults.js": Object.entries(allColors)
+      .map(([name, fallback]) => `export const ${name} = "${fallback}";`)
+      .join("\n"),
+    "defaults.d.ts": Object.keys(allColors)
+      .map(name => `declare const ${name}: string;`)
+      .concat(`\nexport {\n  ${Object.keys(allColors).join(",\n  ")}\n}`)
+      .join("\n"),
+  };
 
-  await fs.writeFile(jsPath, js);
-
-  const dts = Object.keys(allColors)
-    .map(name => `declare const ${name}: string;`)
-    .concat(`\nexport {\n  ${Object.keys(allColors).join(",\n  ")}\n}`)
-    .join("\n");
-
-  await fs.writeFile(dtsPath, dts);
+  await Promise.all(
+    Object.entries(files).map(([file, contents]) =>
+      fs.writeFile(path(file), contents),
+    ),
+  );
 }
 
 main().catch(e => {

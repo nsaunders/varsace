@@ -1,3 +1,5 @@
 node_modules
+/defaults.js
+/defaults.d.ts
 /index.js
 /index.d.ts

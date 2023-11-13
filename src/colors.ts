@@ -3,14 +3,14 @@ import type { generate } from "@k-vyn/coloralgorithm/src";
 export default [
   {
     properties: {
-      steps: 9,
+      steps: 19,
       hue: {
         start: 205,
         end: 215,
         curve: "easeInCubic",
       },
       saturation: {
-        start: 0.08,
+        start: 0.04,
         end: 1,
         rate: 2,
         curve: "linear",
@@ -30,7 +30,7 @@ export default [
   },
   {
     properties: {
-      steps: 9,
+      steps: 19,
       hue: {
         start: 210,
         end: 224,
@@ -57,14 +57,14 @@ export default [
   },
   {
     properties: {
-      steps: 9,
+      steps: 19,
       hue: {
         start: 138,
         end: 145,
         curve: "linear",
       },
       saturation: {
-        start: 0.02,
+        start: 0.04,
         end: 0.89,
         rate: 0.9,
         curve: "easeOutCubic",
@@ -84,7 +84,7 @@ export default [
   },
   {
     properties: {
-      steps: 9,
+      steps: 19,
       hue: {
         start: 33,
         end: 13,
@@ -111,7 +111,7 @@ export default [
   },
   {
     properties: {
-      steps: 9,
+      steps: 19,
       hue: {
         start: 327,
         end: 336,
@@ -138,7 +138,7 @@ export default [
   },
   {
     properties: {
-      steps: 9,
+      steps: 19,
       hue: {
         start: 270,
         end: 274,
@@ -165,7 +165,7 @@ export default [
   },
   {
     properties: {
-      steps: 9,
+      steps: 19,
       hue: {
         start: 0,
         end: 0,
@@ -192,21 +192,21 @@ export default [
   },
   {
     properties: {
-      steps: 9,
+      steps: 19,
       hue: {
         start: 166,
         end: 179,
         curve: "linear",
       },
       saturation: {
-        start: 0.07,
-        end: 0.91,
+        start: 0.04,
+        end: 0.92,
         rate: 2,
         curve: "easeInOutCubic",
       },
       brightness: {
         start: 1,
-        end: 0.03,
+        end: 0.02,
         curve: "linear",
       },
     },
@@ -219,7 +219,7 @@ export default [
   },
   {
     properties: {
-      steps: 9,
+      steps: 19,
       hue: {
         start: 55,
         end: 26,

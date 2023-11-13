@@ -7,12 +7,7 @@ function path(p: string) {
   return pathNode.join(process.cwd(), p);
 }
 
-const fileNames = [
-  "index.js",
-  "index.d.ts",
-  "defaults.js",
-  "defaults.d.ts",
-] as const;
+const fileNames = ["index.js", "index.d.ts"] as const;
 
 async function main() {
   if (process.argv.includes("--config")) {
@@ -21,7 +16,9 @@ async function main() {
   }
 
   if (process.argv.includes("--clean")) {
-    await Promise.all(fileNames.map(p => fs.rm(path(p))));
+    await Promise.all(
+      fileNames.map(p => fs.rm(path(p), { recursive: true, force: true })),
+    );
     console.log("Cleaned up files.");
     process.exit(0);
   }
@@ -36,7 +33,12 @@ async function main() {
         ({ name, colors }) =>
           /* eslint-disable @typescript-eslint/no-unsafe-return,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access */
           colors.map(({ hex }: { hex: string }, index) => {
-            return [`${name?.toLowerCase()}${(index + 1) * 10}`, hex];
+            return [
+              `${name?.toLowerCase()}${((index + 1) * 5)
+                .toString()
+                .padStart(2, "0")}`,
+              hex,
+            ];
           }),
         /* eslint-enable @typescript-eslint/no-unsafe-return,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access */
       )
@@ -44,16 +46,16 @@ async function main() {
   );
 
   if (
-    !("gray10" in colors) ||
-    typeof colors.gray10 !== "string" ||
-    !colors.gray10
+    !("gray05" in colors) ||
+    typeof colors.gray05 !== "string" ||
+    !colors.gray05
   ) {
-    throw new Error('Could not find expected color "gray10".');
+    throw new Error('Could not find expected color "gray05".');
   }
 
   const white =
     "#" +
-    [...(colors.gray10.match(/[a-f0-9]{2}/g) || [])]
+    [...(colors.gray05.match(/[a-f0-9]{2}/g) || [])]
       .map(x => {
         const val = Math.ceil((255 + parseInt(`0x${x}`)) / 2).toString(16);
         return val.length === 1 ? `0${val}` : val;
@@ -61,16 +63,16 @@ async function main() {
       .join("");
 
   if (
-    !("gray90" in colors) ||
-    typeof colors.gray90 !== "string" ||
-    !colors.gray90
+    !("gray95" in colors) ||
+    typeof colors.gray95 !== "string" ||
+    !colors.gray95
   ) {
-    throw new Error('Could not find expected color "gray90".');
+    throw new Error('Could not find expected color "gray95".');
   }
 
   const black =
     "#" +
-    [...(colors.gray90.match(/[a-f0-9]{2}/g) || [])]
+    [...(colors.gray95.match(/[a-f0-9]{2}/g) || [])]
       .map(x => {
         const val = Math.floor(parseInt(`0x${x}`) / 2).toString(16);
         return val.length === 1 ? `0${val}` : val;
@@ -81,19 +83,9 @@ async function main() {
 
   const files: Record<(typeof fileNames)[number], string> = {
     "index.js": Object.entries(allColors)
-      .map(
-        ([name, fallback]) =>
-          `export const ${name} = "var(--${name},${fallback})";`,
-      )
-      .join("\n"),
-    "index.d.ts": Object.keys(allColors)
-      .map(name => `declare const ${name}: string;`)
-      .concat(`\nexport {\n  ${Object.keys(allColors).join(",\n  ")}\n}`)
-      .join("\n"),
-    "defaults.js": Object.entries(allColors)
       .map(([name, fallback]) => `export const ${name} = "${fallback}";`)
       .join("\n"),
-    "defaults.d.ts": Object.keys(allColors)
+    "index.d.ts": Object.keys(allColors)
       .map(name => `declare const ${name}: string;`)
       .concat(`\nexport {\n  ${Object.keys(allColors).join(",\n  ")}\n}`)
       .join("\n"),

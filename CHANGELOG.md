@@ -1,3 +1,10 @@
+## [0.2.0](https://github.com/nsaunders/varsace/compare/v0.1.0...v0.2.0) (2023-11-13)
+
+
+### Features
+
+* larger color scale ([240e7bc](https://github.com/nsaunders/varsace/commit/240e7bc5fc23b35f8ab8d7fce955ec376734e62d))
+
 ## [0.1.0](https://github.com/nsaunders/varsace/compare/v0.0.4...v0.1.0) (2023-10-18)
 
 

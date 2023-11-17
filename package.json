@@ -5,8 +5,6 @@
   "module": "index.js",
   "types": "index.d.ts",
   "files": [
-    "defaults.js",
-    "defaults.d.ts",
     "index.js",
     "index.d.ts"
   ],

@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import pathNode from "path";
 import { generate } from "@k-vyn/coloralgorithm";
-import config from "./colors";
+import config from "./colors.js";
 
 function path(p: string) {
   return pathNode.join(process.cwd(), p);

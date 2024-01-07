@@ -1,4 +1,4 @@
 {
-  "extends": "@tsconfig/strictest/tsconfig.json",
-  "include": [".eslintrc.js", "src"]
+  "extends": "@tsconfig/strictest",
+  "include": [".eslintrc.cjs", "commitlint.config.cjs", "src"]
 }

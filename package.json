@@ -4,6 +4,7 @@
   "description": "TypeScript CSS variables",
   "module": "index.js",
   "types": "index.d.ts",
+  "type": "module",
   "files": [
     "index.js",
     "index.d.ts"
@@ -11,8 +12,8 @@
   "scripts": {
     "clean": "ts-node ./src/index.ts --clean",
     "config": "ts-node ./src/index.ts --config",
-    "lint": "eslint src .*.*js",
-    "prepublishOnly": "ts-node ./src/index.ts",
+    "lint": "eslint src *.*js .*.*js",
+    "prepublishOnly": "node --loader ts-node/esm ./src/index.ts",
     "test": "echo \"Don't test declarative code.\""
   },
   "repository": {
